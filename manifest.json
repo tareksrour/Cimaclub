@@ -2,7 +2,7 @@
     "name"          : "CimaClub",
     "domain"        : [ "cimaclub.com" ],
     "version"       : "0.0.1",
-    "url"           : "http://example.com/_clone_me.js",
+    "url"           : "https://raw.githubusercontent.com/tareksrour/Cimaclub/master/cima_club_provider.js",
     "type"          : [ "movie", "tv" ,"anime"],
     "request_data"  : {}
 }
