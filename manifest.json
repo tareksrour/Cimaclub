@@ -1,6 +1,7 @@
 {
     "add_on_type"   : "provider",
     "domain"        : [ "cimaclub.com" ],
+    "name"          : "cimaclub",
     "version"       : "0.0.1",
     "url"           : "https://raw.githubusercontent.com/tareksrour/Cimaclub/master/cimaclub.js",
     "type"          : [ "movie", "tv" ,"anime"],
