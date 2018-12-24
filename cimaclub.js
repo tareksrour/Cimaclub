@@ -1,7 +1,7 @@
 const URL = {
     DOMAIN: "http://cimaclub.com",
     SEARCH:  (title) => {
-        return `http://cimaclub.com/?s=${title}`;
+        return `http://cimaclub.com/?s=${encodeURIComponent(title)}`;
     },
     STREAM:(q,i)=>{
         return `http://cimaclub.com/wp-content/themes/Cimaclub/servers/server.php?q=${q}&i=${i}`
