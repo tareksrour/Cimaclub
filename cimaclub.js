@@ -136,7 +136,7 @@ class CimaClub {
     }
 }
 
-module.exports = async (libs, movieInfo, settings) => {
+exports.default = async (libs, movieInfo, settings) => {
 
     const cloneMe = new CimaClub({
         libs: libs,
