@@ -1,12 +1,5 @@
 {
     "providers": {
-        "cimaclub": {
-            "name": "cimaclub",
-            "domain": "cimaclub.com",
-            "version": "1.0.0",
-            "url": "https://raw.githubusercontent.com/tareksrour/Cimaclub/master/cimaclub.js",
-            "type": ["movie", "tv"]
-        },
         "primeware": {
             "name": "primeware",
             "domain": "primeware.ag",
