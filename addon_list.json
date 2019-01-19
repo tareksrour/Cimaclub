@@ -1,15 +1,6 @@
 {
     "providers": {
-        "cimaclub": {
-            "name": "cimaclub",
-            "domain": "cimaclub.com",
-            "version": "0.1.0",
-            "url": "https://raw.githubusercontent.com/tareksrour/Cimaclub/master/cimaclub.js",
-            "type": [
-                "movie",
-                "tv"
-            ]
-        },
+        
         "5movies": {
             "name": "5movies",
             "domain": "5movies.to",
