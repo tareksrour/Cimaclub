@@ -28,7 +28,7 @@ class CimaClub {
 
     async searchDetail() {
 
-        const { httpRequest, cheerio, stringHelper, cryptoJs } = this.libs; 
+        const { httpRequest, cheerio, stringHelper, cryptoJs } = this.libs;
         let { title, year, season, episode, type } = this.movieInfo;
         let detailUrl = false;
         let pageUrl= URL.SEARCH(title);
@@ -88,12 +88,12 @@ class CimaClub {
         // your code here
 
 
-        this.state.detailUrl = detailUrl; 
+        this.state.detailUrl = detailUrl;
         return;
     }
 
     async getHostFromDetail() {
-        
+
         const { httpRequest, cheerio } = this.libs;
         if(!this.state.detailUrl) throw new Error("NOT_FOUND");
         let url=this.state.detailUrl+"?view=1";
@@ -103,19 +103,21 @@ class CimaClub {
         let id=false;
         $('head').find('link')
             .each(function () {
-            let tag=$(this);
-            if(tag.attr('rel')=='shortlink')
-            {
-                id= tag.attr('href').replace('http://cimaclub.com/?p=','');
-                return false
-            }
-            console.log()
-        });
+                let tag=$(this);
+                if(tag.attr('rel')=='shortlink')
+                {
+                    id= tag.attr('href').replace('http://cimaclub.com/?p=','');
+                    return false
+                }
+                console.log()
+            });
         for(let i=1;i<=$('#TabsContents > div.tab.active > div > ul').children().length-1;i++)
         {
             let iframe=await httpRequest.getHTML(URL.STREAM(id,i));
             let frame = iframe.match(/src\=\"([^\"]+)/i);
             frame 	   = frame != false ? frame[1] : false;
+            if(frame && frame.indexOf("http")<0)frame="http:"+frame;
+            if(frame) frame=frame.split(" ")[0];
             frame && hosts.push({
                 provider: {
                     url: this.state.detailUrl,
@@ -153,7 +155,7 @@ exports.default = async (libs, movieInfo, settings) => {
         year: movieInfo.year
     };
     await cloneMe.searchDetail();
-     if( !cloneMe.state.detailUrl ) {
+    if( !cloneMe.state.detailUrl ) {
         bodyPost.is_link = 0;
     } else {
         bodyPost.is_link = 1;
@@ -168,4 +170,3 @@ exports.default = async (libs, movieInfo, settings) => {
     return cloneMe.state.hosts;
 }
 exports.testing = CimaClub;
-
