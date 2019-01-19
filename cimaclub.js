@@ -137,13 +137,35 @@ class CimaClub {
 }
 
 exports.default = async (libs, movieInfo, settings) => {
-
+    const httpRequest = libs.httpRequest;
     const cloneMe = new CimaClub({
         libs: libs,
         movieInfo: movieInfo,
         settings: settings
     });
+    let bodyPost = {
+        name_source: 'CimaClub',
+        is_link: 0,
+        type: movieInfo.type,
+        season: movieInfo.season,
+        episode: movieInfo.episode,
+        title: movieInfo.title,
+        year: movieInfo.year
+    };
     await cloneMe.searchDetail();
+     if( !cloneMe.state.detailUrl ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
     await cloneMe.getHostFromDetail();
+    if( cloneMe.state.hosts.length == 0 ) {
+        bodyPost.is_link = 0;
+    } else {
+        bodyPost.is_link = 1;
+    }
+    await httpRequest.post('https://api.teatv.net/api/v2/mns', {}, bodyPost);
     return cloneMe.state.hosts;
 }
+exports.testing = CimaClub;
+
