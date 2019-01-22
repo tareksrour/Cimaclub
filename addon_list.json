@@ -1,6 +1,15 @@
 {
     "providers": {
-        
+        "cimaclub": {
+            "name": "cimaclub",
+            "domain": "cimaclub.com",
+            "version": "0.1.0",
+            "url": "http://localhost:8000/cimaclub.js",
+            "type": [
+                "movie",
+                "tv"
+            ]
+        },
         "5movies": {
             "name": "5movies",
             "domain": "5movies.to",
