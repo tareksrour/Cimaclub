@@ -4,7 +4,7 @@
             "name": "cimaclub",
             "domain": "cimaclub.com",
             "version": "0.1.0",
-            "url": "http://localhost:8000/cimaclub.js",
+            "url": "https://raw.githubusercontent.com/tareksrour/Cimaclub/master/cimaclub.js",
             "type": [
                 "movie",
                 "tv"
